@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqoycy1gbfih"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_8f0lj"]
+[ext_resource type="PackedScene" uid="uid://bq2klf258fyvx" path="res://spritesheets/player_set.aseprite" id="1_m5p1t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wg1lr"]
+size = Vector2(44, 78)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(150, 377)
+scale = Vector2(2, 2)
+collision_layer = 2
+script = ExtResource("1_8f0lj")
+
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("1_m5p1t")]
+position = Vector2(32, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(36, 1)
+shape = SubResource("RectangleShape2D_wg1lr")

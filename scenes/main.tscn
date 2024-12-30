@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://c88ooejat3rti"]
+
+[ext_resource type="PackedScene" uid="uid://dqoycy1gbfih" path="res://scenes/player.tscn" id="1_1ml7b"]
+[ext_resource type="PackedScene" uid="uid://cgiibvfqjjtdu" path="res://scenes/enemy.tscn" id="2_a5bkq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5rgq6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r66sq"]
+size = Vector2(1150, 186)
+
+[node name="Node" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_1ml7b")]
+position = Vector2(-9, 373)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(236, 556.5)
+scale = Vector2(468, 199)
+mesh = SubResource("BoxMesh_5rgq6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MeshInstance2D"]
+position = Vector2(-0.423044, -0.747312)
+scale = Vector2(0.000869565, 0.00537634)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeshInstance2D/StaticBody2D"]
+position = Vector2(486.5, 139)
+shape = SubResource("RectangleShape2D_r66sq")
+debug_color = Color(0, 0, 0, 0.42)
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+position = Vector2(896, 557.5)
+scale = Vector2(512, 201)
+mesh = SubResource("BoxMesh_5rgq6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MeshInstance2D2"]
+position = Vector2(-0.423044, -0.747312)
+scale = Vector2(0.000869565, 0.00537634)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeshInstance2D2/StaticBody2D"]
+position = Vector2(486.5, 139)
+shape = SubResource("RectangleShape2D_r66sq")
+debug_color = Color(0, 0, 0, 0.42)
+
+[node name="Enemy" parent="." instance=ExtResource("2_a5bkq")]
+position = Vector2(830, 402)
